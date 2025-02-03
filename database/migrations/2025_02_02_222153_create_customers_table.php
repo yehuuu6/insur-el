@@ -13,17 +13,17 @@ return new class extends Migration
     {
         Schema::create('customers', function (Blueprint $table) {
             $table->id();
-            $table->string('tc', 11)->unique(); // TC No
-            $table->date('birth_date'); // Doğum Tarihi
-            $table->string('name', 100); // Adı Soyadı
-            $table->string('plate', 10); // Plaka
-            $table->string('document_serial', 20); // Belge Seri
-            $table->date('issue_date'); // Tanzim Tarihi
-            $table->date('start_date'); // Başlangıç Tarihi
-            $table->date('expiry_date'); // Bitiş Tarihi
-            $table->string('policy_type', 50); // Poliçe Türü
-            $table->string('policy_no', 50)->unique(); // Poliçe No
-            $table->string('company', 100); // Şirket
+            $table->string('tc')->nullable(); // TC No
+            $table->timestamp('birth_date')->nullable(); // Doğum Tarihi
+            $table->string('name', 100)->nullable(); // Adı Soyadı
+            $table->string('plate', 10)->nullable(); // Plaka
+            $table->string('document_serial', 20)->nullable(); // Belge Seri
+            $table->timestamp('issue_date')->nullable(); // Tanzim Tarihi
+            $table->timestamp('start_date')->nullable(); // Başlangıç Tarihi
+            $table->timestamp('expiry_date')->nullable(); // Bitiş Tarihi
+            $table->string('policy_type', 50)->nullable(); // Poliçe Türü
+            $table->string('policy_no', 50)->nullable(); // Poliçe No
+            $table->string('company', 100)->nullable(); // Şirket
             $table->timestamps();
         });
     }

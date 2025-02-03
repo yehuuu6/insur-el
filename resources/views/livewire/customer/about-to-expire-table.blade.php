@@ -1,7 +1,7 @@
 <div class="p-6">
     <div class="flex flex-col md:flex-row items-center justify-between gap-4">
         <h1 class="text-lg text-center md:text-left md:text-2xl font-semibold text-gray-700">
-            Tüm Müşteriler
+            Günü Yaklaşan Müşteriler
         </h1>
         <span class="text-orange-400 text-xs text-center md:text-left">
             Sayfa başına 25 kayıttan fazlası uygulamanın performansını olumsuz etkileyebilir.
@@ -9,13 +9,9 @@
     </div>
     <div class="flex items-center flex-col md:flex-row justify-between gap-4">
         <div class="flex items-center gap-3">
-            <button x-on:click="excelModal = true" type="button"
-                class="text-sm md:text-base bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded my-3">
-                Excel
-            </button>
-            <a href="{{ route('about-to-expire') }}" wire:navigate.hover
-                class="text-sm md:text-base bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded my-3">
-                Günü Yaklaşanlar
+            <a href="{{ route('dashboard') }}" wire:navigate.hover
+                class="text-sm md:text-base bg-amber-500 hover:bg-amber-700 text-white font-bold py-2 px-4 rounded my-3">
+                Tüm Müşteriler
             </a>
             <a href="{{ route('expired-customers') }}" wire:navigate.hover
                 class="text-sm md:text-base bg-violet-500 hover:bg-violet-700 text-white font-bold py-2 px-4 rounded my-3">
@@ -25,8 +21,12 @@
         <div class="flex items-center gap-2">
             <select wire:model.live="sortBy" value="asc"
                 class="px-4 py-2 bg-white rounded border border-gray-200 focus:outline-none">
-                <option value="desc">En yeni</option>
-                <option value="asc">En eski</option>
+                <option value="asc">
+                    En yakın
+                </option>
+                <option value="desc">
+                    En uzak
+                </option>
             </select>
             <select wire:model="perPage" x-on:change="$dispatch('update-per-page', {value: $event.target.value})"
                 class="px-4 py-2 bg-white rounded border border-gray-200 focus:outline-none">
@@ -162,11 +162,7 @@
                 @empty
                     <tr>
                         <td colspan="14" class="px-6 py-10 whitespace-nowrap text-sm text-center text-gray-500">
-                            Herhangi bir kayıt bulunamadı. Dilerseniz <a href="{{ route('customer.create') }}"
-                                class="text-blue-500 hover:underline">yeni bir kayıt oluşturabilirsiniz</a> ya da <span
-                                class="text-green-500 cursor-pointer hover:underline"
-                                x-on:click="excelModal = true">Excel
-                                dosyasından aktarma yapabilirsiniz.</span>
+                            Yakın zamanda sigortası sona ermek üzere olan müşteri bulunmamaktadır.
                         </td>
                     </tr>
                 @endforelse
@@ -176,14 +172,4 @@
     <div class="mt-4">
         {{ $this->customers->links('vendor.pagination.simple') }}
     </div>
-    @if ($this->customers->isNotEmpty())
-        <div class="flex items-center">
-            <button wire:click="deleteAllCustomers" type="button"
-                wire:confirm="Bu işlemi gerçekleştirmek istediğinize emin misiniz?"
-                class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded my-3">Tüm Müşterileri
-                Sil
-            </button>
-        </div>
-    @endif
-    <x-excel-modal wire:modal="excelModal" />
 </div>

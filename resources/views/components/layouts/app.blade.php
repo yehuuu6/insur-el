@@ -11,10 +11,18 @@
 </head>
 
 <body class="min-h-screen flex flex-col w-full overflow-x-hidden bg-slate-100 font-inter antialiased">
-    <main class="mx-[3%] mt-4 md:mx-[6%] md:mt-8">
+    @persist('nav')
+        <x-layout.navbar />
+    @endpersist
+    <main class="mx-[3%] mt-4 md:mx-[6%] md:mt-8 mb-7 md:mb-14">
         {{ $slot }}
     </main>
-    <x-toaster-hub />
+    <div class="mt-auto">
+        @persist('footer')
+            <x-layout.footer />
+            <x-toaster-hub />
+        @endpersist
+    </div>
     @livewireScriptConfig
 </body>
 
