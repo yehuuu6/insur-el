@@ -18,6 +18,7 @@ class CustomersImport implements ToModel, WithHeadingRow
         // dd($row); // Uncomment this line to debug the row data
         return new Customer([
             'tc' => $row['tc_vergi_no'], // Use the header name as the key
+            'birth_date' => $row['dogum'],
             'name' => $row['musteri'],
             'plate' => $row['plaka'],
             'document_serial' => $row['belge_seri'],
@@ -27,6 +28,8 @@ class CustomersImport implements ToModel, WithHeadingRow
             'policy_type' => $row['police'],
             'policy_no' => $row['police_no'],
             'company' => $row['sirket'],
+            'phone' => $row['telefon'],
+            'notes' => $row['notlar'],
         ]);
     }
 }

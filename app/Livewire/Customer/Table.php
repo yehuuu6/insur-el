@@ -103,7 +103,7 @@ class Table extends Component
     #[Computed]
     public function customers()
     {
-        return Customer::orderBy('created_at', $this->sortBy)
+        return Customer::orderBy('issue_date', $this->sortBy)
             ->simplePaginate((int) $this->perPage);
     }
 

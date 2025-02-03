@@ -91,6 +91,22 @@
                         class="flex w-full h-10 px-3 py-2 text-sm bg-white border rounded-md text-neutral-600 border-neutral-300 ring-offset-background placeholder:text-neutral-400 focus:border-neutral-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-400 disabled:cursor-not-allowed disabled:opacity-50">
                 </div>
             </div>
+            <div class="flex gap-3 flex-col md:flex-row items-center w-full">
+                <div class="flex flex-col gap-1.5 flex-grow w-full">
+                    <label for="phone" class="text-sm font-medium text-gray-700">
+                        Telefon
+                    </label>
+                    <input type="text" wire:model="phone" id="phone"
+                        class="flex w-full h-10 px-3 py-2 text-sm bg-white border rounded-md text-neutral-600 border-neutral-300 ring-offset-background placeholder:text-neutral-400 focus:border-neutral-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-400 disabled:cursor-not-allowed disabled:opacity-50">
+                </div>
+                <div class="flex flex-col gap-1.5 flex-grow w-full">
+                    <label for="notes" class="text-sm font-medium text-gray-700">
+                        Notlar
+                    </label>
+                    <input type="text" wire:model="notes" id="notes"
+                        class="flex w-full h-10 px-3 py-2 text-sm bg-white border rounded-md text-neutral-600 border-neutral-300 ring-offset-background placeholder:text-neutral-400 focus:border-neutral-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-400 disabled:cursor-not-allowed disabled:opacity-50">
+                </div>
+            </div>
             <button wire:click="createCustomer" type="button"
                 class="w-full py-2 text-sm font-semibold text-white bg-blue-600 border border-transparent rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                 Müşteriyi Ekle

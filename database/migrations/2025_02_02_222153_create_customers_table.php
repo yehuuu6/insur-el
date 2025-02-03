@@ -24,6 +24,8 @@ return new class extends Migration
             $table->string('policy_type', 50)->nullable(); // Poliçe Türü
             $table->string('policy_no', 50)->nullable(); // Poliçe No
             $table->string('company', 100)->nullable(); // Şirket
+            $table->string('phone')->nullable();
+            $table->longText('notes')->nullable();
             $table->timestamps();
         });
     }

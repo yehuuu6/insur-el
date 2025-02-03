@@ -7,7 +7,7 @@
         </div>
         <div class="w-full text-gray-700 text-sm">
             <span>
-                Copyright ©
+                Copyright © INSUrel
                 <span x-data="{ date: '2025' }" x-init="date = new Date().getFullYear()" x-text="date"></span>
                 All rights
                 reserved.

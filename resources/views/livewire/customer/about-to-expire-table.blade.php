@@ -84,6 +84,12 @@
                         Şirket
                     </th>
                     <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Telefon
+                    </th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Notlar
+                    </th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                         <svg class="shrink-0 size-5 mr-1.5 -ml-1 text-red-500" viewBox="0 0 24 24" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd"
@@ -149,6 +155,16 @@
                         <x-customer-item fieldType="company" customerId="{{ $customer->id }}">
                             <x-slot name="value">
                                 {{ $customer->company }}
+                            </x-slot>
+                        </x-customer-item>
+                        <x-customer-item fieldType="phone" customerId="{{ $customer->id }}">
+                            <x-slot name="value">
+                                {{ $customer->phone }}
+                            </x-slot>
+                        </x-customer-item>
+                        <x-customer-item fieldType="notes" customerId="{{ $customer->id }}">
+                            <x-slot name="value">
+                                {{ $customer->notes }}
                             </x-slot>
                         </x-customer-item>
                         <td class="px-6 py-4 whitespace-nowrap text-sm text-center text-gray-500">

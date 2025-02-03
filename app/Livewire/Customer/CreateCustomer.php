@@ -20,6 +20,8 @@ class CreateCustomer extends Component
     public $policy_type;
     public $policy_no;
     public $company;
+    public $phone;
+    public $notes;
 
     public function cleanForm()
     {
@@ -40,6 +42,8 @@ class CreateCustomer extends Component
             'policy_type' => $this->policy_type,
             'policy_no' => $this->policy_no,
             'company' => $this->company,
+            'phone' => $this->phone,
+            'notes' => $this->notes,
         ];
 
         $customer = Customer::create($nonValidated);
